@@ -20,6 +20,7 @@ const height = 160
 // x and y value for the bottom left corner of the card
 const startingCorner = 29
 const rad = 6
+const oppositeLayer = 180 // in degrees
 
 // width of the card
 // measured in millimeters
@@ -159,16 +160,26 @@ const suit = [
     [startingCorner + 2 * (rad + suit_x_stretch), startingCorner + cardHeight - 0.25 * (rad + suit_y_stretch)],
 ]
 
-finalLines.push(suit)
+for (let i = 0; i < 3; i++) {
+  finalLines.push(bt.catmullRom(suit, i))
+}
 
 // draw first set
 drawLines(finalLines)
 
 // rotate lines using the toolkit
-bt.rotate(finalLines, 180)
+bt.rotate(finalLines, oppositeLayer)
 
 // draw flipped,
 drawLines(finalLines)
 
 // rotate back so coordinates are normal
 bt.rotate(finalLines, 180)
+
+let gridLines = []
+
+for (let i = 0; i < 50; i++) {
+  gridLines.push([[startingCorner + cardWidth, startingCorner + rad], [i * cardWidth/Math.max(cardWidth, cardHeight) + cardWidth * 0.845, i * cardHeight/Math.min(cardWidth, cardHeight) * 0.88 + startingCorner + rad]])
+}
+
+drawLines(gridLines)
