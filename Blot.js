@@ -10,8 +10,12 @@
 // check out this guide to learn how to program in blot
 // https://blot.hackclub.com/editor?guide=start
 
-const width = 125;
-const height = 160;
+//////////////////////////////////////////
+// create some const variables
+//////////////////////////////////////////
+
+const width = 125
+const height = 160
 
 // x and y value for the bottom left corner of the card
 const startingCorner = 29
@@ -24,26 +28,16 @@ const cardWidth = 43
 const cardHeight = 59
 
 // set dimensions
-setDocDimensions(width, height);
+setDocDimensions(width, height)
 // just push all polylines to this list
-const finalLines = [];
+const finalLines = []
 
 const bladeLen = 2.9 / 10 // measured in cm
 const hiltLength = 1.1 / 10 // measured in cm
 
 
-// create a polyline
-/*
-const polyline = [
-  [startingCorner, startingCorner],
-  [startingCorner + cardWidth, startingCorner],
-  [startingCorner + cardWidth, startingCorner + cardHeight],
-  [startingCorner, startingCorner + cardHeight],
-  [startingCorner, startingCorner],
-];
-*/
-
-
+const suit_x_stretch = 0
+const suit_y_stretch = 0
 
 const sword = [
     // create the blade
@@ -155,11 +149,26 @@ const curve4 = [
 // Push all the lines onto the finalLines stack
 finalLines.push(bt.nurbs(curve1), bt.nurbs(curve2), bt.nurbs(curve3), bt.nurbs(curve4))
 
+const suit = [
+    [startingCorner + 2 * (rad + suit_x_stretch), startingCorner + cardHeight - 0.25 * (rad + suit_y_stretch)],
+    [startingCorner + 1.5 * (rad + suit_x_stretch), startingCorner + cardHeight + 0.25 * (rad + suit_y_stretch)],
+    [startingCorner + 1.75 * (rad + suit_x_stretch), startingCorner + cardHeight + 0.5 * (rad + suit_y_stretch)],
+    [startingCorner + 2 * (rad + suit_x_stretch), startingCorner + cardHeight + 0.25 * (rad + suit_y_stretch)],
+    [startingCorner + 2.25 * (rad + suit_x_stretch), startingCorner + cardHeight + 0.5 * (rad + suit_y_stretch)],
+    [startingCorner + 2.5 * (rad + suit_x_stretch), startingCorner + cardHeight + 0.25 * (rad + suit_y_stretch)],
+    [startingCorner + 2 * (rad + suit_x_stretch), startingCorner + cardHeight - 0.25 * (rad + suit_y_stretch)],
+]
+
+finalLines.push(suit)
+
 // draw first set
-drawLines(finalLines);
+drawLines(finalLines)
 
 // rotate lines using the toolkit
-bt.rotate(finalLines, 180);
+bt.rotate(finalLines, 180)
 
-// draw flipped, 
-drawLines(finalLines);
+// draw flipped,
+drawLines(finalLines)
+
+// rotate back so coordinates are normal
+bt.rotate(finalLines, 180)
