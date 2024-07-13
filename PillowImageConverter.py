@@ -24,6 +24,6 @@ lines += "]"
 # image_file.save('result.png') # save result - not required
 print(lines)
 print("Poly.push(generated_polyline)")
-print("bt.scale((Poly), [0.1, 0.1])")
+#print("bt.scale((Poly), [0.1, 0.1])")
 print("bt.rotate(Poly, 180)")
 print("drawLines(Poly)")
