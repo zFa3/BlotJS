@@ -1,7 +1,8 @@
-#!usr/bin/env/python 3
-# zFa3 - BlotMesh Generator
-
 from PIL import Image 
+
+### RECOMMENDED
+### Use an image that is 480p or less ###
+
 print("""
 const width = 125;
 const height = 125;
@@ -24,4 +25,5 @@ lines += "]"
 print(lines)
 print("Poly.push(generated_polyline)")
 print("bt.scale((Poly), [0.1, 0.1])")
+print("bt.rotate(Poly, 180)")
 print("drawLines(Poly)")
