@@ -1,6 +1,6 @@
 # BlotJS
 
-This project was made by me (zFa3) using ht eonline editor
+This project was made by me (zFa3) using the online editor
 blot and Javascript and Python
 
 ![Snapshot4](https://github.com/zFa3/BlotJS/assets/153332084/348ac364-a206-44ac-8725-d78be8442302)
