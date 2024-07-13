@@ -1,10 +1,3 @@
-/*
-@title: Royal Sword
-@author: Jayden W
-@snapshot: snapshot1.png
-*/
-
-
 // welcome to blot!
 
 // check out this guide to learn how to program in blot
